@@ -142,5 +142,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "app.User"  # mentioning here for abstractUser
 
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 django_heroku.settings(locals())
