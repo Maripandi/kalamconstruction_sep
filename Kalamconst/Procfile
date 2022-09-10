@@ -1,0 +1,1 @@
+web gunicorn Kalamconst.wsgi:application --log-file -
