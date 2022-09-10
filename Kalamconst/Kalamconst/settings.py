@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,20 +80,18 @@ WSGI_APPLICATION = "Kalamconst.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "kalamconst",
-        "USER": "root",
-        "PASSWORD": "systems",
-        "HOST": "localhost",
-        "PORT": "3306",
-
-    # @pythonanywhere
         # "ENGINE": "django.db.backends.mysql",
-        # "NAME": "maripandi$kalamconstruction",
-        # "USER": "maripandi",
-        # #"PASSWORD": "systems123", #for pythonanywhere
-        # "HOST": "maripandi.mysql.pythonanywhere-services.com",
+        # "NAME": "kalamconst",
+        # "USER": "root",
+        # "PASSWORD": "systems",
+        # "HOST": "localhost",
         # "PORT": "3306",
+
+
+
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR/'db.sqlite3'
+
     }
 }
 
@@ -143,6 +143,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "app.User"  # mentioning here for abstractUser
 
 
-# mari
-# mari@gm.com
-# 1234
+django_heroku.settings(locals())
